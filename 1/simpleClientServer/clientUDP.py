@@ -7,7 +7,7 @@ try:
     while True:
         message = input("Please enter Your Query:\n")
         clientSocket.sendto(message.encode(), (serverIP, serverPort))
-        result, serverAddress = clientSocket.recv(2048)
+        result, serverAddress = clientSocket.recvfrom(2048)
         print(f"your proccessed query is: {result.decode()}")
 finally:
     clientSocket.close()    
